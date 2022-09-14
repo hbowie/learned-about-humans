@@ -1,0 +1,15 @@
+Title:  Project Structure
+
+Seq:    5
+
+Level:  2
+
+Body:
+
+The project is organized into the following top-level folders. 
+
++ `content` -- This folder is the Notenik Collection containing all of the site's content. 
++ `resources` -- This folder is an ancillary Notenik Collection containing various resources useful in the creation and maintenance of the site. 
++ `tips` -- This folder, containing this Collection, containing notes on design and implementation decisions made while creating the site. 
++ `web` -- All of the files to be uploaded to the website. 
+
