@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Search</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/styles.css" type="text/css" />
+</head>
+<body>
+
+
+<p>6 <a href="navigation.html">Navigation</a>&nbsp;&#8593;</p><h4 id="search">1. Search</h4>
+<form action="https://duckduckgo.com/" method="get" id="form-search">
+
+<label for="input-search">Enter your search term:</label>
+
+<input type="text" name="q" id="input-search">
+
+<input type="hidden" name="sites" value=" https//learnedabouthumans.org">
+
+<button type="submit" class="btn btn-primary" id="submit-search">Search</button></form>
+
+<div id="search-results">
+</div>
+
+<script>
+let searchIndex = [ 
+    { 
+        title: "What I've Learned About Humans", 
+        date: "", 
+        url: "what-ive-learned-about-humans.html", 
+        summary: "<p>by Herb Bowie &#8230; </p>", 
+        content: "by Herb Bowie <p>The original content in the web book <span xmlns dct= http purl org dc terms href= http purl org dc dcmitype Text property= dct title rel= dct type ><cite>What I ve Learned About Humans< cite>< span> by <a xmlns cc= http creativecommons org ns href= https hbowie net about html property= cc attributionName rel= cc attributionURL >Herb Bowie< a> is generously licensed under a <a rel= license href= http creativecommons org licenses by 4 0 >Creative Commons Attribution 4 0 International License< a> where other authors and sources are cited their words are subject to separate and typically more stringent copyright restrictions and are included here under the doctrine of Fair Use < p> <p><a rel= license href= http creativecommons org licenses by 4 0 ><img alt= Creative Commons License style= border width 0 src= https i creativecommons org l by 4 0 88x31 png >< a>< p>"
+    }, 
+    { 
+        title: "Introduction", 
+        date: "", 
+        url: "introduction.html", 
+        summary: "<p>This section provides a brief introduction to the author and the work. </p>", 
+        content: "This section provides a brief introduction to the author and the work"
+    }, 
+    { 
+        title: "Background", 
+        date: "", 
+        url: "background.html", 
+        summary: "<p>I began my freshman year at the University of Michigan as an Engineering student, with a full scholarship from a major American aerospace company. </p>", 
+        content: "I began my freshman year at the University of Michigan as an Engineering student with a full scholarship from a major American aerospace company By the end of my third semester I had transferred to the school of Literature Science and the Arts and was pursuing a degree in English Lit even though that meant leaving my scholarship behind Somewhere along the way I remember sailing through an advanced Math class that seemed to be giving fits to most of my fellow students so it wasn t due to any lack of ability that I made the switch No it was more a matter of interests Looking back on it now I realize I found myself more interested in people in myself and my fellow humans than I was in the properties of the material world I took classes in psychology and philosophy as well as literature But outside of the classroom I was also studying the music of the day a topic I ve written about at ReasonToRock com r2r After graduation I lucked into a job that allowed me to learn computer programming a craft I still practice lately producing a Mac App that you can learn more about at Notenik app nnk But the most intriguing part of my career came from working with people users managers executives employees consultants And then there was my own growth becoming a husband and father a manager a volunteer and the manager of an improvement office And I continued to read widely about business economics and philosophy as well as enjoying fictional narratives So I ve finally reached a point in my life at which I d like to collect organize and share what I think I ve learned about humans myself and others I present this content as a series of broadly useful ideas that I believe are worth passing on and worth revisiting on a repeated basis My goal with this work is to pack as much useful wisdom as I can into as few words as possible I should confess up front that much of the content here is not original but has been adapted from other sources whom I cite along the way At the same time I have tried to put things into my own words and state what has proven meaningful for me This has no doubt resulted in some adaptations to which the original authors might take exception Should this prove the case I can only apologize in advance and suggest that readers take advantage of the extensive Bibliography to consult these sources directly and then draw their own conclusions nnk https notenik app r2r https reasontorock com"
+    }, 
+    { 
+        title: "Structure", 
+        date: "", 
+        url: "structure.html", 
+        summary: "<p>The first section following this introduction contains the meat of the work, and is simply titled <a href=\"key-learnings.html\">Key Learnings</a>. </p>", 
+        content: "The first section following this introduction contains the meat of the work and is simply titled Key Learnings Each idea is initially presented in summary form with embedded links to each associated chapter where you can find additional detail The next section contains Reference Materials that I draw upon in the first section The following section contains relevant Quotations from works by others These quotations are included again where pertinent by the chapters in the first section The final section contains a Bibliography"
+    }, 
+    { 
+        title: "Feedback", 
+        date: "", 
+        url: "feedback.html", 
+        summary: "<p>If you think I&#8217;ve gotten something terribly wrong, or have overlooked something important, or have just left you feeling confused about a topic, then I invite you to reach out to me. </p>", 
+        content: "If you think I ve gotten something terribly wrong or have overlooked something important or have just left you feeling confused about a topic then I invite you to reach out to me hb I d love to hear your thoughts and questions hb mailto author learnedabouthumans org"
+    }, 
+    { 
+        title: "Key Learnings", 
+        date: "", 
+        url: "key-learnings.html", 
+        summary: "<p>I&#8217;ve learned some important things about humans over the years. &#8230; </p>", 
+        content: "I ve learned some important things about humans over the years teasers"
+    }, 
+    { 
+        title: "Society", 
+        date: "", 
+        url: "society.html", 
+        summary: "<p>We are naturally <a href=\"social.html\">social</a>, in that we create and sustain and participate in human societies of varying structures and sizes. </p>", 
+        content: "We humans are innately social creatures What do I mean by this That we tend to get stuff done by forming societies of one form or another In other words we come together with other humans to hunt to forage to farm to cook to eat to share stories and to do almost everything else that we think of as human When you think about it this makes a lot of sense After all as individuals we humans are not very fearsome creatures No thick fur or tough skin to protect us no sharp claws or teeth with which to fight no great running speed to chase down prey No it is only by working together with other humans that we become a force to be reckoned with In fact there is next to nothing that we accomplish on our own as isolated individuals Even when there is no one else around and we are enjoying a quiet moment to ourselves we are almost always making use of things that were provided by others knowledge clothes buildings furniture tools Relevant Quotations include quote A beast or a god"
+    }, 
+    { 
+        title: "Development", 
+        date: "", 
+        url: "development.html", 
+        summary: "<p>We all want to grow and <a href=\"develop.html\">develop</a>. We take different paths, and proceed at different rates, but the drive to develop is present in all of us, from inception onwards. </p>", 
+        content: "When it comes to the story of humanity development is really the only game in town Let s start with the development of each individual human Each of us develops physically growing to maturity over an incredibly long period compared to other species But then there is also the development of our knowledge and skills and capabilities which can continue over an entire lifetime And there is also our collective cultural development as societies accumulate knowledge and attitutudes and practices that can be shared between members and passed on from one generation to the next Our cultural development though is inseperable from the ongoing and continuous development of the individuals within a society as the older members are replaced by newborns and so the cycle of individual development begins again with each new person becoming not only their own development project but a vessel for the accumulated cultural develpment of the societies into which they are born And then there is the chance for each of us to make new contributions to the ongoing development of our cultures and our societies All of these forms of development are interconnected And without all of these aspects of our development there would be little about us that we would still recognize as human"
+    }, 
+    { 
+        title: "Group and Individual Mirroring", 
+        date: "", 
+        url: "group-and-individual-mirroring.html", 
+        summary: "<p>Human groups tend to exhibit many of the same attributes and behaviors as do individual humans. In other words, what is true of individuals is often also true of groups. I think of this as <a href=\"group-and-individual-mirroring.html\">group and individual mirroring</a>. </p>", 
+        content: "What is true of individuals is also often true of groups For example I ve said that we all want to grow and develop But the societies that we form the groups in which we participate also have a tendency to grow and develop Human individuals tend to form groups as I ve already pointed out above In other words groups are composed of individuals But in larger organizations larger societies if you will groups can also be composed of other groups or of individuals representing those other groups This sort of arrangement is evident in a typical hierarchical organization structure But one thing we will find is that the behaviors and motivations of individuals in relationship to the group s to which they belong also tend to be characteristic of groups in relationship to the group s to which they belong This is why when stating the Core Design Principles for Groups as formulated by David Sloan Wilson and Elinor Ostrom the final principle of polycentric governance states that include quote Relationships among groups"
+    }, 
+    { 
+        title: "Language", 
+        date: "", 
+        url: "language.html", 
+        summary: "<p>We develop languages and vocabularies that we can use to communicate with one another. <a href=\"language.html\">Language</a> is the most basic glue that we humans rely on when forming cooperative societies. </p>", 
+        content: "Language is one of the most essential versatile and sophisticated tools we rely upon as we develop human societies As examples we use language to + Compare observations + Share knowledge + Discuss options + Make agreements In order for languages to be useful words must have shared meanings"
+    }, 
+    { 
+        title: "Flexible and Adaptive Behavior", 
+        date: "", 
+        url: "flexible-and-adaptive-behavior.html", 
+        summary: "<p>Much of our human behavior is learned, <a href=\"flexible-and-adaptive.html\">flexible and adaptive</a>. </p>", 
+        content: "Unlike other species much of our behavior is not simply genetically encoded and subject to change only through the gradual workings of evolution but is instead learned flexible and adaptive and is therefore not easily predictable To borrow concepts from computing relatively few of our attributes and operations are hard wired built into our genetic hardware so to speak leaving most of our characteristics and behavior to be determined by software of a sort more malleable elements of our identity that are subject to change based on new information and shifting contexts And just as computer software relies on programming languages for algorithms and instructions we humans rely on language to adapt to changing conditions and negotiate changes to shared behaviors within our societies"
+    }, 
+    { 
+        title: "Integration of Multiple Perspectives", 
+        date: "", 
+        url: "integration-of-multiple-perspectives.html", 
+        summary: "<p>We humans often take into account multiple perspectives on a thing or situation, do our best to integrate these different views into some coherent mental model, and then decide upon some action based upon a balanced consideration. We can think of this as taking an <a href=\"integral-approach.html\">integral approach</a>. </p>", 
+        content: "We humans have the ability to see things people events circumstances from more than one perspective More than that things appear differently when we view them from different perspectives In other words you and I may observe the same event or consider the same issue and yet see that same event or issue very differently Not only that but a single person may view an event or issue from multiple perspectives Here s an example of what I mean that I came across recently in the news It s an excerpt from an interview with former US President Barack Obama obama speaking about immigration into America obama https abcnews go com Politics obama haitian migrants plight heartbreaking biden system broken story id=80267478 > Immigration is tough It always has been because on the one hand I think we are naturally a people that wants to help others And we see tragedy and hardship and families that are desperately trying to get here so that their kids are safe and they re in some cases fleeing violence or catastrophe At the same time we re a nation state We have borders The idea that we can just have open borders is something that as a practical matter is unsustainable If we consider Obama s words for a moment we can easily see that he s describing two different perspectives on a single issue + First there is what we might call an empathic perspective we see people who are hurting and we want to help them or want them to be helped + Second there is what we might call a systemic perspective describing our current system of world and national governance with nation states and borders and legal systems But this way of considering issues through consideration of multiple perspectives is not unique to Obama or to the topic of immigration it s just part and parcel of how we humans have learned to deal with the world around us So what do we do with these varied points of view It s often tempting and certainly simpler to bless one view as the right one and ignore or reject all others as false It s more challenging but sometimes more useful and at times more equitable to try to integrate these varied perspectives into a more comprehensive understanding of a person event or issue When we try to integrate varied perspectives in this way we can think of this broadly as taking an integral approach"
+    }, 
+    { 
+        title: "The Four Quadrants", 
+        date: "", 
+        url: "the-four-quadrants.html", 
+        summary: "<p>We tend to perceive reality from four different perspectives, often referred as <a href=\"the-four-quadrants.html\">the four quadrants</a>. Understanding these perspectives as four valid and complementary ways of perceiving the world is a good first step to obtaining an integral outlook. We can think of these as the <a href=\"individual-subjective.html\">individual subjective</a>, the <a href=\"individual-objective.html\">individual objective</a>, the <a href=\"social-objective.html\">social objective</a> and the <a href=\"social-subjective.html\">social subjective</a>. </p>", 
+        content: "We tend to perceive reality from four different perspectives ofter referred as the four quadrants Understanding these perspectives as four valid and complementary ways of perceiving the world is a good first step to obtaining an integral outlook We can think of these as the individual subjective the individual objective the social objective and the social subjective Reference + The Four Quadrants of Human Knowledge"
+    }, 
+    { 
+        title: "Individual Subjective", 
+        date: "", 
+        url: "individual-subjective.html", 
+        summary: "<p>Let’s call the first of these the individual subjective. This is the perspective each of us takes when observing ourselves from the interior. The attributes perceived from this perspective might include pain, hunger, love, anger, serenity and so on. </p>", 
+        content: "Each of us experiences a complex inner world of sensations emotions thoughts and feelings And while others may report having similar feelings or very different ones no one else can actually experience our inner world in the same way that we can These inner experiences can vary from the mundane hunger pain fear to the sublime wonder love reverence The inner experiences that we have can be highly individual you and I may have very different inner reactions to something happening in the world around us And the relationships between external stimuli and our inner feelings can sometimes be obvious but at other times rather complex and even mysterious When considering the multiple perspectives we can take regarding a thing some of these viewpoints may fairly be considered subjective This is not to imply that subjective views are invalid or unworthy of consideration far from it"
+    }, 
+    { 
+        title: "Individual Objective", 
+        date: "", 
+        url: "individual-objective.html", 
+        summary: "<p>The next quadrant might be called the <a href=\"individual-objective..html\">individual objective.</a> This is the perspective we take when viewing an individual from the exterior. For example, we might observe the weight, the height, the hair color of an individual. </p>", 
+        content: "An objective perspective views something from an outer or exterior vantage point and does so without being unduly influenced by the personal feelings or opinions of the observers Unlike subjective perspectives other objective observers should be able to put themselves in our shoes and make the same observations that we have from the same perspective One of the advantages of an objective perspective is that multiple independent observers should be able to agree on the characteristics or attributes of an object being observed and can therefore reach agreement on what we generally describe as the facts of the matter"
+    }, 
+    { 
+        title: "Social Objective", 
+        date: "", 
+        url: "social-objective.html", 
+        summary: "<p>And now let&#8217;s move to what we might call the <a href=\"social-objective.html\">social objective</a>. This is the perspective we taken when viewing a human society from the exterior. This might include observation of their rituals, their institutions, their means of communication and means of value exchange. </p>", 
+        content: "And now let s move to what we might call the social objective This is the perspective we take when viewing a human society from the exterior This might include observation of their rituals their institutions their means of communication and means of value exchange"
+    }, 
+    { 
+        title: "Social Subjective", 
+        date: "", 
+        url: "social-subjective.html", 
+        summary: "<p>And finally we can consider what we might call the <a href=\"social-subjective.html\">social subjective</a>, or the intersubjective. This is the perspective we take from the interior of a human society: our shared values and attitudes and beliefs and allegiances. </p>", 
+        content: "Humans also have subjective experiences of the societies that we form But because these experiences are generally shared we can refer to this sort of perspective as an intersubjective one Each one of us is a member of one or more groups We may be part of a family part of a team part of an organization part of a state And such groups tend to have their own special perspectives and their own sets of interests And members of such groups tend to share certain attributes of their interior worlds such as a common set of values Elements of our cultures shared symbols and stories and other artifacts help to bind us together into closely knit societies by encouraging and shaping common inner thoughts and feelings about the forms of our societies and the ways in which we work together For additional info see the article The Four Quadrants of Human Knowledge"
+    }, 
+    { 
+        title: "4Q Wrap-Up", 
+        date: "", 
+        url: "4q-wrap-up.html", 
+        summary: "<p>The value of <a href=\"the-four-quadrants.html\">the four quadrants</a> model is that it helps ensure that we have considered all of these perspectives in any situation. </p>", 
+        content: "The value of the four quadrants model is that it helps ensure that we have considered all of these perspectives in any situation If we have failed to account for one or more of these then we will be left with an incomplete picture of what is going on"
+    }, 
+    { 
+        title: "Motivational Hierarchy", 
+        date: "", 
+        url: "motivational-hierarchy.html", 
+        summary: "<p>Lower-level needs must be attended to before consideration can be given to higher-level desires. As a result, we can conceive of a range of influencing factors being arranged into a <a href=\"motivational-hierarchy.html\">motivational hierarchy</a>. </p>", 
+        content: "Whether we are considering individuals or groups we tend to have some sorts of motivations that need to be satisfied before we turn our attention to others We can think of these as being arranged in a hierarchy with the more pressing concerns coming first at the lower levels of the hierarchy Reference + Maslow s Hierarchy of Needs"
+    }, 
+    { 
+        title: "Imminent Survival", 
+        date: "", 
+        url: "imminent-survival.html", 
+        summary: "<p>Our attention and energies are first given to factors threatening our imminent survival. </p>", 
+        content: "Our attention and energies are first given to factors threatening our imminent survival For an individual this may mean feelings of hunger or excessive heat or cold or the presence of a predator For an organization in a capitalist economy it might involve concerns about being able to meet payroll But until this category of needs can be satisfied it will not be possible to give much consideration to higher level concerns"
+    }, 
+    { 
+        title: "Secure Structures", 
+        date: "", 
+        url: "secure-structures.html", 
+        summary: "<p>At the next level, humans are motivated to feel a sense of <a href=\"secure-structures.html\">secure structures</a> around them. </p>", 
+        content: "At the next level humans are motivated to feel a sense of secure structures around them These may be family structures or social structures or economic structures or business structures But humans want to know how things work and how these workings will continue to keep them secure"
+    }, 
+    { 
+        title: "Social Belonging", 
+        date: "", 
+        url: "social-belonging.html", 
+        summary: "<p>At the next level, humans want to feel acceptance as members of one or more social groups&#8230;. </p>", 
+        content: "At the next level humans want to feel acceptance as members of one or more social groups"
+    }, 
+    { 
+        title: "Valuable Contributor", 
+        date: "", 
+        url: "valuable-contributor.html", 
+        summary: "<p>At the next level, we wish to feel that we are valuable contributors to the societies in which we participate&#8230;. </p>", 
+        content: "At the next level we wish to feel that we are valuable contributors to the societies in which we participate"
+    }, 
+    { 
+        title: "Exploring Our Potential", 
+        date: "", 
+        url: "exploring-our-potential.html", 
+        summary: "<p>At the next level we desire to continue to explore our potential to be more than we were yesterday, or are today&#8230;. </p>", 
+        content: "At the next level we desire to continue to explore our potential to be more than we were yesterday or are today"
+    }, 
+    { 
+        title: "Cooperation", 
+        date: "", 
+        url: "cooperation.html", 
+        summary: "<p>We find it natural to <a href=\"work-cooperatively.html\">work cooperatively</a> with other humans in order to achieve shared objectives. </p>", 
+        content: ""
+    }, 
+    { 
+        title: "Flexible Cooperation", 
+        date: "", 
+        url: "flexible-cooperation.html", 
+        summary: "<p>We are able to cooperate with other humans in uniquely <a href=\"flexible-and-adaptive-ways.html\">flexible and adaptive ways</a>. </p>", 
+        content: " Relevant Quotations include quote Cooperative communication"
+    }, 
+    { 
+        title: "Autonomy", 
+        date: "", 
+        url: "autonomy.html", 
+        summary: "<p>We all want to experience a large degree of <a href=\"autonomy.html\">autonomy</a>. We want to have options available to us, and we don&#8217;t want our decisions and actions to be coerced. </p>", 
+        content: ""
+    }, 
+    { 
+        title: "Culture", 
+        date: "", 
+        url: "culture.html", 
+        summary: "<p>We are inquisitive and creative and retentive. We learn about the world around us and we invent new objects and structures for interacting with other humans and with the natural world. We embed these learnings and inventions into shared <a href=\"cultures.html\">cultures</a> used by our societies, and pass these down from one generation to the next. </p>", 
+        content: " Wikipedia s entry wp offers a useful summary of what we mean by culture > Culture encompasses the range of phenomena that are transmitted through social learning in human societies The concept of material culture covers the physical expressions of culture such as technology architecture and art whereas the immaterial aspects of culture such as principles of social organization including practices of political organization and social institutions mythology philosophy literature both written and oral and science comprise the intangible cultural heritage of a society In other words culture consists of the knowledge beliefs artifacts attitudes practices and institutions that are shared by a group of people and transmitted socially between members of that group wp https en wikipedia org wiki Culture Relevant Quotations include quote A vast repository of information"
+    }, 
+    { 
+        title: "Cultural Evolution", 
+        date: "", 
+        url: "cultural-evolution.html", 
+        summary: "<p>Our cultures change and develop over time, in a process sometimes referred to as <a href=\"cultural-evolution.html\">cultural evolution</a>. </p>", 
+        content: " Evolution as originally described by Charles Darwin and considered in a biological context is a genetic affair And genetic evolution can be a very slow process requiring generations before significant change is achieved But humans evolved in ways that came to support another sort of evolution cultural evolution And so human behavior and cultural traits can evolve without the need to wait for the slow process of genetic evolution For anyone familiar with computers we can think of this as hardware vs software Genetic evolution is like upgrading your hardware mostly through the purchase of a new computer every few years Cultural evolution though is like improving your software You can get a major operating system upgrade to your current system often without any changes to your hardware And even between releases of new operating system versions you can install new applications or upgrades to existing applications And so cultural changes can come about much more rapidly than genetic changes Relevant Quotations include quote An ultracultural species is born"
+    }, 
+    { 
+        title: "Fair Play", 
+        date: "", 
+        url: "fair-play.html", 
+        summary: "<p>When working with others as part of a group, or participating in a society to which we belong, we are guided by a sense of <a href=\"fair-play.html\">fair play</a>, marked by: </p><ul><li>proportional equivalence between benefits and contributions; </li><li>consistent rules that are applied uniformly; </li><li>graduated sanctions that distinguish between initial and accidental violation of norms, as opposed to informed, intentional and persistent violations. </li></ul>", 
+        content: ""
+    }, 
+    { 
+        title: "Meaning", 
+        date: "", 
+        url: "meaning.html", 
+        summary: "<p>We all crave <a href=\"meaning.html\">meaning</a> in our lives. Meaning is a subjective sense of the significance of our actions, perceptions, judgments and recollections. Meaning often derives from a sense of purpose, and is often an intersubjective sense that arises from the cooperative efforts of a group. </p>", 
+        content: ""
+    }, 
+    { 
+        title: "Differentiation", 
+        date: "", 
+        url: "differentiation.html", 
+        summary: "<p>We seek <a href=\"differentiation.html\">differentiation</a> from others with similar intentions, in order to form and sustain our own identities. When we participate in groups, we like to feel that we make some unique contributions. </p>", 
+        content: ""
+    }, 
+    { 
+        title: "Competition", 
+        date: "", 
+        url: "competition.html", 
+        summary: "<p>Differentiation often leads to <a href=\"competition.html\">competition</a>. </p>", 
+        content: ""
+    }, 
+    { 
+        title: "Groups", 
+        date: "", 
+        url: "groups.html", 
+        summary: "<p>What is true for individuals is also often true for <a href=\"groups.html\">groups</a>, as smaller groups form relationships with other groups, including relationships of inclusion, and as groups grow in size. For example, groups develop identities, desire autonomy, pursue differentiation, engage in competition and have a sense of fair play. </p>", 
+        content: ""
+    }, 
+    { 
+        title: "Relaxation and Play", 
+        date: "", 
+        url: "relaxation-and-play.html", 
+        summary: "<p>We all need to balance periods of work &#8211; activity focused on producing a needed set of outputs &#8211; with periods of <a href=\"relaxation-and-play.html\">relaxation and play</a> &#8211; time spent without the necessity of useful production. </p>", 
+        content: ""
+    }, 
+    { 
+        title: "Developmental Levels", 
+        date: "", 
+        url: "developmental-levels.html", 
+        summary: "<p>We humans and our societies tend to develop through a series of  <a href=\"levels.html\">levels</a>. Later levels don&#8217;t supersede earlier levels, but rather complement earlier ones, adding additional capabilities. Each level is characterized by certain sorts of intersubjective feelings, as well as certain sorts of objective social structures. </p>", 
+        content: "A number of authors and systems of thought espouse one or another series of developmental levels in fields of study as diverse as psychology sociology economics and organizational development Ken Wilber was the first author I encountered who proposed an integration of these various developmental progressions into a single unifying scheme However much of Ken s take on these levels was heavily influenced by the Spiral Dynamics work done by Beck and Cowan which was in turn based on work done by Clare W Graves graves Maslow s hierarchy of needs https en wikipedia org wiki Maslow 27s hierarchy of needs is probably one of the better known examples of this sort of developmental model So what do we mean by a level of development in this context Here s where it gets a little tricky Both in terms of individual development and in terms of sociocultural development these levels seem to emerge in a certain sequence However later levels do not supersede or invalidate earlier levels Rather than replacing previous levels each emergent level expands the complexity and capacity of individuals and societies And so Wilber and Beck and Cowan have tried to use colors to identify the levels rather than numbers in order to avoid giving the impression that later levels are somehow superior to earlier levels At some point along the line though Ken Wilber and the Integral crew decided it was important to change some of the colors I ve listed both the original Spiral Dynamics colors and the newer Integral colors in the table below but in general I will stick with the original colors from Beck and Cowan Also there has been a later tendency to add new higher levels to the upper end of this range I ve not been able to make much sense of these myself so I m omitting them here As we go through these levels we will see that each one has a particular subjective or intersubjective viewpoint as well as typical social structures that can be identified from an objective perspective There s a certain chicken and the egg sort of dilemma we face when trying to disentangle the objective social aspects of a level from its subjective aspects but for me it feels more natural to consider the objective social aspects first so I ll proceed in that manner Also it s worth noting that as we proceed through the levels they tend to alternate between an assertion of individual power archaic tribal modern integral followed by a more community based perspective magical traditional postmodern Here s a table listing all of the levels with their associated colors I have omitted the Turquoise holistic and Coral levels because they both seem to me to be vague and aspirational and not particularly useful at least for my purposes beck https en wikipedia org wiki Don Edward Beck graves https en wikipedia org wiki Clare W Graves spiral https en wikipedia org wiki Spiral Dynamics wilber https en wikipedia org wiki Ken Wilber <table> <caption align= top > Developmental Levels < caption> <tr> <th>Number< th> <th>Name< th> <th>Characterization< th> <th>Spiral Dynamics Color< th> <th>Integral Color< th> < tr> <tr> <td>1< td> <td><a href= https ntnk app archaic >Archaic< a> Instinctual< td> <td>Focused solely on immediate survival needs minimal sense of self behavior based on natural instincts and reflexes concern only for physical self and physical environment nothing that we would recognize as society or culture < td> <td class= beige >Beige< td> <td class= infrared >Infrared < td> < tr> <tr> <td>2< td> <td><a href= https ntnk app magical >Magical< a> Animistic< td> <td>Beginning to differentiate self from world and elements of world from one another and to intuit causal relationships but no accurate understanding of these relationships impulsive possessing faith in magic and superheroes tribal kinship bonds ethnic tribes ancestral stories superstitious beliefs < td> <td class= purple >Purple < td> <td class= magenta >Magenta < td> < tr> <tr> <td>3< td> <td><a href= https ntnk app tribal >Tribal< a> Power Gods < td> <td>Egocentric asserting self for dominance conquest and power evident in feudal empires and criminal gangs people organize themselves based on power hierarchies with the most powerful individuals leading the weaker might makes right < td> <td class= red >Red < td> <td class= red >Red < td> < tr> <tr> <td>4< td> <td><a href= https ntnk app traditional >Traditional< a> Mythic Order < td> <td>People organize themselves around mythic fundamentalist principles of truth with groups requiring close conformity to their particular principles but with no reliable way to make value judgments comparing one group s truth to another s group membership now based on professed allegiance and obedience to shared principles rather than on family ties or geography or membership in gangs fundamental principles held to be absolute and unvarying belief in the law and in an authoritarian hierarchy from which the law is passed down < td> <td class= blue >Blue < td> <td class= amber >Amber < td> < tr> <tr> <td>5< td> <td><a href= https ntnk app modern >Modern< a> Rational< td> <td>Society advances based on use of the scientific method quantitative methods are introduced that allow people to make objective decisions about what is true and what is false truth is determined based on the testing of a variety of hypotheses rather than reference to an absolute authority oriented towards achievement of results < td> <td class= orange >Orange < td> <td class= orange >Orange < td> < tr> <tr> <td>6< td> <td><a href= https ntnk app postmodern >Postmodern< a> Pluralistic< td> <td>Egalitarian relativistic situational accepting of fluid affiliations acknowledges that there are multiple valid ways of perceiving reality and tries to accept all people and life forms by placing value on diversity may be seen as a means of accommodating multiple tribes gangs and mythic orders within a single overarching social order consensus based decision making < td> <td class= green >Green < td> <td class= green >Green < td> < tr> <tr> <td>7< td> <td><a href= https ntnk app integrallevel >Integral< a> Systemic < td> <td>Sees the importance of the earlier levels and of the developmental model as a whole while still acknowledging the value of diversity also recognizes the validity of healthy value hierarchies < td> <td class= yellow >Yellow < td> <td class= teal >Teal < td> < tr> < table> Relevant Quotations include quote Levels of Moral Development"
+    }, 
+    { 
+        title: "Instinctual Level", 
+        date: "", 
+        url: "instinctual-level.html", 
+        summary: "<p>At the archaic/<a href=\"instinctual-level.html\">instinctual level</a> of development, we are guided only by our innate instincts and urges, focused only on the immediate survival needs of self and species. At this level there is no participation in any sort of society. </p>", 
+        content: "This is one of several general developmental levels applicable to the development of both individuals and societies This is really a pre social level prior to the introduction of any sort of society at all At this level humans + are focused solely on immediate survival needs + have a minimal sense of self + exhibit behavior based on natural instincts and reflexes + are concerned only for the physical self and physical environment + possess nothing that we would recognize as society or culture We may think of this first level as hopelessly primitive but it s important to include it because all of us are still motivated by basic survival instincts fight or flight hunger thirst lust avoidance of pain and physical danger and so on Some social structures can override these basic instincts as when a soldier goes to war to protect his or her country but these basic survival motivations are all still present and so must be kept in mind and accounted for It s important to note though that a human being motivated only by these basic instincts is generally categorized as a sociopath and for good reason So while this level is a necessary starting point nothing here offers table stakes to get you into the game called humanity"
+    }, 
+    { 
+        title: "Kinship Level", 
+        date: "", 
+        url: "kinship-level.html", 
+        summary: "<p>At the magical/animistic/<a href=\"kinship-level.html\">kinship level</a> of development, individuals form bonds with other family members, and pass down information from one generation to the next, often by means of stories. A shared understanding of cause and effect begins to emerge, although not yet informed by anything other than anecdotal observation, and often resulting in magical thinking, including beliefs in spirits. </p>", 
+        content: "This is one of several general developmental levels applicable to the development of both individuals and societies At this level social structures begin to emerge dominated primarily by kin relationships The family structure serves to conserve knowledge and property by sharing these assets among family members and passing them down from one generation to the next Language starts to come into play at this level but still limited to oral forms At this level of development humans + are beginning to differentiate self from world + are beginning to differentiate elements of the world from one another + can intuit causal relationships but with no reliable understanding of how these work + tend to act on impulse + pass down ancestral stories + possess faith in magic and superheroes + have superstitious beliefs And while from the lofty vantage point of later levels this magical level may still seem terribly primitive it is vital to recognize that all of us still possess this way of seeing the world and exercise it on a regular basis"
+    }, 
+    { 
+        title: "Tribal Level", 
+        date: "", 
+        url: "tribal-level.html", 
+        summary: "<p>At the <a href=\"tribal-level.html\">tribal level</a> of development, individuals begin to assert themselves in order to achieve dominance over others, often forming power hierarchies as a means of group leadership and coordination. </p>", 
+        content: "This is one of several general developmental levels applicable to the development of both individuals and societies The primary form of social organization at this level is the power pyramid a hierarchical command and control structure in which those above have power over those below and in which the strongest rise towards the apex of the pyramid Written language starts to come into play at this level as multi level hierarchies begin to issue written commands At this level of development humans + tend to be egocentric + assert themselves for dominance conquest and power + have strong feelings of loyalty to their tribes and their tribal leaders + believe that might makes right This level of development is the dominant one in feudal empires criminal gangs and military organizations But the power hierarchy is also a dominant structure in most corporations in the executive branches of governments as well as in some organized religions"
+    }, 
+    { 
+        title: "Traditional Level", 
+        date: "", 
+        url: "traditional-level.html", 
+        summary: "<p>At the <a href=\"traditional/mythic-level.html\">mythic level</a> of development, people organize themselves around shared beliefs and mythic leaders and behavioral norms, often requiring rigid conformance to an authoritarian order. </p>", 
+        content: "This is one of several general developmental levels applicable to the development of both individuals and societies At this level people organize themselves around written rules and traditions handed down from a higher authority groups organized in this way require strict adherence to the group s rules for members of such a group the validity of the higher authority and the rules are fundamental and not to be questioned This level of development is often dominant in religious fundamentalism and in societies with strict codes of ethics including both professional and patriotic groups This level offers increased flexibility over the tribal level in that written rules of conduct can be applied universally and are not dependent on access to the latest commands issued by the higher levels in a hierarchy"
+    }, 
+    { 
+        title: "Modern Level", 
+        date: "", 
+        url: "modern-level.html", 
+        summary: "<p>At the <a href=\"modern/rational-level.html\">rational level</a> of development, people use systematic observation, quantitative measurement, the written word, peer reviews and publication in order to acquire and share reliable information about the world, and to make decisions, codify behavior and create technology based on that information. </p>", 
+        content: "This is one of several general developmental levels applicable to the development of both individuals and societies At this level of development people use experimentation and peer networks to establish reliable statements of truth This level emphasizes the importance of what actually works over what is commonly accepted to be true Science and engineering propelled by quantitative methods emerge as dominant disciplines at this level This level often emphasizes the importance of new scientific discoveries and applications of technology over the dictates of traditional wisdom Relevant Quotations include quote When you can measure what you are speaking about"
+    }, 
+    { 
+        title: "Postmodern Level", 
+        date: "", 
+        url: "postmodern-level.html", 
+        summary: "<p>At the <a href=\"postmodern/pluralistic-level.html\">pluralistic level</a> of development, societies become more consciously egalitarian, more accepting and appreciative of fluid affiliations between their members, and more tolerant and appreciative of diversity, especially in terms of a variety of cultural traditions. </p>", 
+        content: "This is one of several general developmental levels applicable to the development of both individuals and societies This social structure brings together people with many different interests skills and backgrounds into a shared community in which all have equal status Diversity is actively valued as a means of improving social cohesion and as a means of bringing to bear as many different talents and points of view as possible In this structure individuals are encouraged to explore and discover new and meaningful ways of connecting with one another essentially creating emergent structure The World Wide Web is based on this organizational system At this level of development humans + have a heightened sensitivity to inequities + attempt to reach consensus rather than seeking decisions from anointed leaders + have high empathy skills + often value emotions above cognitive reasoning + adopt an attitude of relativism towards values and statements of truth rather than a belief in absolute truth"
+    }, 
+    { 
+        title: "Integral Level", 
+        date: "", 
+        url: "integral-level.html", 
+        summary: "<p>As individuals and societies develop through these levels, they have a tendency to become primarily focused on the values and social structures of one particular level. At the <a href=\"integral/systemic-level.html\">systemic level</a> of development, though, people begin to appreciate the value of integrating the values and social structures associated with all of the prior levels into a more fluid, systemic approach that is able to select and combine elements in order to best respond to particular situations. </p>", 
+        content: "This is one of several general developmental levels applicable to the development of both individuals and societies The Integral level of development recognizes that each preceding level addresses some aspect of reality that is necessary for human development and in fact that any one of the preceding levels may need to be activated in certain life conditions Unlike each of the earlier levels that tend to experience the world only through their blinkered perspective the integral level includes and transcends prior levels and humans operating at this level tend to have flexible dynamic adaptive attitudes towards the social groups in which they participate Humans operating at this level tend to see existing social structures as systems that can be changed rather than inflexible constructs and may see themselves as change agents for systems rather than players limited to operating within existing systems Relevant Quotations include quote Life can be much broader"
+    }, 
+    { 
+        title: "Conflicted", 
+        date: "", 
+        url: "conflicted.html", 
+        summary: "<p>We humans are often subject to <a href=\"conflicting.html\">conflicting</a> and sometimes contradictory feelings and motivations. This is part and parcel of the human experience, and not necessarily an indication of any sort of flaw in ourselves, in our societies, or in the cosmos. </p>", 
+        content: ""
+    }, 
+    { 
+        title: "Responsibility for Development", 
+        date: "", 
+        url: "responsibility-for-development.html", 
+        summary: "<p>An essential function for any society is the ongoing development of its members. </p>", 
+        content: ""
+    }, 
+    { 
+        title: "Reference Materials", 
+        date: "", 
+        url: "reference-materials.html", 
+        summary: "<p>This section contains summaries of various pertinent models, theories, lists and concepts I&#8217;ve come across in my studies. </p>", 
+        content: "This section contains summaries of various pertinent models theories lists and concepts I ve come across in my studies They are listed in no particular order"
+    }, 
+    { 
+        title: "The Four Quadrants of Human Knowledge", 
+        date: "", 
+        url: "the-four-quadrants-of-human-knowledge.html", 
+        summary: "<p>It was modern American philosopher <a href=\"ken-wilber.html\">Ken Wilber</a> who had the insight that, when we look at the many perspectives that we humans can take on a topic, these perspectives can often usefully be categorized into one of four quadrants that together make&#8230; </p>", 
+        content: "It was modern American philosopher Ken Wilber who had the insight that when we look at the many perspectives that we humans can take on a topic these perspectives can often usefully be categorized into one of four quadrants that together make up a more balanced view of reality The four quadrants are formed by the intersection of two dimensions The first dimension left or right can be expressed as either interior or exterior The second dimension up or down can be expressed as either individual or collective Combining these we get the four quadrants UL Interior of an Individual Upper Left 8212 This is reality viewed from the 8216 I 8217 perspective what things look like and feel like to me as an individual As an example <a href= http en wikipedia org wiki Category Freudian psychology >Freudian psychology< a> is based on this perspective UR Exterior of an Individual Upper Right 8212 This is reality viewed from an 8220 it 8221 perspective In psychology <a href= http en wikipedia org wiki Behaviorism >Skinner 8217 s behaviorism< a> is an example Knowledge is based on observation of the behavior of individuals acting in isolation without reference to any interior feeling states LL Interior of a Collective Lower Left This is reality viewed from the We perspective what things feel like to us as a collective Cultural studies are based on this perspective elucidating how things feel to a group based on the collective norms and values of the group LR Exterior of a Collective Lower Right This is reality viewed from the They perspective based on the observable behavior of a group Sociology studies are generally based on this perspective and include the behaviors of a society An understanding of these four quadrants of perception is useful because it helps us understand that very different views of reality Freudian psychology vs Skinner s behaviorism for example are not contradictory or mutually exclusive but rather are complementary Views from all of these different perspectives may be equally valid even if they are very different ways of looking at the world Note that the two exterior right hand views are often lumped together for purposes of discussion It s worth noting that Yuval Noah Harari in his book Sapiens A Brief History of Humankind uses the terms subjective inter subjective and objective to describe respectively the upper left lower left and right hand sides of Wilber s quadrant defining them like this An objective right hand phenomenon exists independently of human consciousness and human beliefs The subjective upper left is something that exists depending on the consciousness and beliefs of a single individual It disappears or changes if that particular individual changes his or her beliefs The inter subjective lower left is something that exists within the communication network linking the subjective consciousness of many individuals If a single individual changes his or her beliefs or even dies it is of little importance However if most individuals in the network die or change their beliefs the inter subjective phenomenon will mutate or disappear Wilber has explained some of these differences of perspective as follows > If you are talking to me about your new car you are the first person I am the second person and the car is the third person These pronouns actually represent three perspectives that human beings can take when they talk about the world or attempt to know the world The fascinating part is that these three perspectives might actually give rise to art morals and science Or the Beautiful the Good and the True the Beauty that is in the eye or the I of the beholder the Good or moral actions that can exist between you and me as a we and the objective Truth about third person objects or its that you and I might discover hence art I morals we and science it While this is a useful explanation I tend to think of Art as a human activity that ties these perspectives together in the following way based on observation of nature and society it and or they an individual an I expresses his or her interior reality creating an object observable by others an it that gains an appreciative audience a we and thereby establishes a shared interior reality In this way I believe that Art uniquely helps to tie these different perspectives together providing an integrated holistic view of human experience The Four Quadrants model can be applied in all sorts of contexts which is part of what makes it so useful Let me give you a couple of business examples Take a look at the following words from Rob Austin in his insightful little book <cite> Measuring and Managing Performance in Organizations < cite> > One frequent analogy casts the manager in the role of an airplane pilot guided by organizational measures that are like cockpit instruments > > Mechanistic and organic analogies are flawed because they are too simplistic Kaplan and Norton s cockpit analogy would be more accurate if it included a multitude of tiny gremlins controlling wing flaps fuel flow and so on of a plane being buffeted by winds and generally struggling against nature but with the gremlins always controlling information flow back to the cockpit instruments for fear that the pilot might find gremlin replacements It would not be surprising if airplanes guided this way occasionally flew into mountainsides when they seemed to be progressing smoothly toward their destinations Note that Rob starts with exterior perspectives of collectives a manager guiding an organization and a pilot flying an aircraft But then he goes on to expose the interior feeling fear of individuals who are not only being guided but being asked to objectively report the data on which their performance will be graded He then suggests the sort of culture interior such a collective of gremlins might develop in such conditions and what sort of collective behavior they might exhibit So while Austin may not have consciously or explicitly referred to the Four Quadrants model seeing his work as an example of this model may help us gain similarly powerful insights in other situations Here is another example from <cite> Toyota Culture The Heart and Soul of The Toyota Way < cite> by Jeffrey Liker and Mike Hoseus Here Mike tells a story of learning first hand some of the elements of the Toyota culture > As a new group leader I was sent to Tsutsumi to spend a month getting an appreciation of working on the line and mastering one process The team leaders told us no one would be able to complete the whole job by the end of the month but I was determined to prove them wrong I was installing liners underneath the wheel well when my air gun slipped and the driver bit scratched the paint on the inner lip of the wheel well I gasped and looked around no one saw me do it but they had told me to pull the andon rope cord if I made or caught any defect It was my moment of truth My first reaction was to let it go No one would probably see the scratch anyway and no one would know that I made it But my conscience got the best of me and I wanted to see if they really meant what they said about admitting mistakes So I pulled the andon and the team leader came to fix the problem and showed me how to hold the bit with a free finger in order to stabilize it better But he did not seem angry at me for making the scratch > > Then at break we gathered for our afternoon group meeting where the group leader gave out information on safety and quality issues and heard back concerns from the members > > They spoke Japanese so I could not understand what they were saying until I heard the words Mike san Well that got my attention so I listened carefully more Japanese and then scratchee scratchee and then more Japanese So here it was finally I was going to get called out for messing up and they were going to do it in front of everyone Then all of a sudden the whole group looked at me and clapped and smiled and patted my back and shook my hand as they headed back to the line I couldn t believe it after double checking with an interpreter just to make sure they were applauding me because I made a mistake and admitted it I felt like a million bucks and guess what I did the next time I made a mistake Notice how the story talks about individual behavior Exterior of an Individual group behavior Exterior of a Collective individual feelings Interior of an Individual and group culture Interior of a Collective And while these are four distinct perspectives they are all describing the same set of events Note also that while these are distinctly different perspectives they are not unrelated quite the opposite in fact Mike s story clearly shows how an individual and then a group responded to an event how the culture was evidenced by the group s behavior and then how that behavior made an individual feel which influenced his future feelings and behavior This is the beauty of the Four Quadrants model in that it gives us a complete picture of reality and increases our understanding of that reality Many lean transformation efforts fail for example because they are focused only on productivity improvements Exterior of a Collective and fail to instill the corresponding cultural elements necessary to support the desired behavior austin http www cbs dk en research departments and centres department of management politics and philosophy staff rampp austin1 http www amazon com exec obidos ASIN 0932633366 pagantuna 20 behaviorism http en wikipedia org wiki Behaviorism bhoe http www amazon com Brief History Everything Ken Wilber dp 1570627401 ref=sr 1 3 s=books ie=UTF8 qid=1351079735 sr=1 3 keywords=ken+wilber freud http en wikipedia org wiki Category Freudian psychology salon http www salon com 2008 04 28 ken wilber toyota culture http www amazon com exec obidos ASIN 0071492178 pagantuna 20 work http www amazon com Ken Wilber e B000APH4W2 ref=sr tc 2 0 qid=1351079953 sr=1 2 ent"
+    }, 
+    { 
+        title: "Core Design Principles for Groups", 
+        date: "Date, date, valid: true, type: DateValue, value: 9 Apr 2020", 
+        url: "core-design-principles-for-groups.html", 
+        summary: "<p>I&#8217;d like to talk about the fundamental organizational principles that make for effective cooperation within groups of humans. </p><p>Luckily a lot of the heavy lifting here has already been done for us. </p>", 
+        content: "I d like to talk about the fundamental organizational principles that make for effective cooperation within groups of humans Luckily a lot of the heavy lifting here has already been done for us I m drawing today on the Nobel prize winning work done by the political economist Elinor Ostrom https en wikipedia org wiki Elinor Ostrom as interpreted and updated by evolutionary biologist David Sloan Wilson and his pals at Prosocial World https www prosocial world with some paraphrasing from me In order to understand the importance of these principles we need to first appreciate the importance of teaming within the development of humanity Wilson speaks to this in his book This View of Life Completing the Darwinian Revolution include quotebody Small groups are a fundamental unit of human social organization What this means is that as human beings we are hard wired not to compete and survive as individuals but to work together cooperatively as members of small teams And what makes this sort of teaming work Wilson and his colleagues following the path forged by Ostrom define what they call the eight Core Design Principles CDPs for human teaming 1 Strong Group Identity with Clearly Defined Boundaries This includes a shared understanding of the team s goals the boundaries of their resources and the rights and obligations of being a team member 2 Proportional Equivalence Between Benefits and Costs Team members must be fairly rewarded based on their contributions 3 Fair and Inclusive Decision Making Everyone gets a chance to participate in decision making and decisions are made in a way recognized by all to be fair Also decisions are made at the lowest possible level both to confer a sense of empowerment but also to allow decisions to be made based on local circumstances best known and appreciated by the team itself 4 Monitoring Agreed Upon Behaviors The team must have a way of monitoring members and detecting deviations from accepted norms 5 Graduated Sanctions This may start as friendly pressure from peers but then may proceed to more serious consequences if negative behavior persists 6 Fast and Fair Conflict Resolution When conflicts arise teams must have a way to resolve them quickly and in a manner seen as fair 7 Local Autonomy Teams must have the freedom to conduct their own affairs without undue external interference 8 Polycentric Governance In large organizations that consist of multiple teams relationships among teams must embody the same principles as the relationships among individuals within each team This means that the core design principles above are scale independent It s interesting to note that Ostrom s research was based on observations of the actual success and failure of many small teams rather than on the invention of increasingly complex formulas and models often favored by traditional economists These Core Design Principles provide a valuable framework that can be used to evaluate and improve the effectiveness of teams organizations and societies And while these principles may seem obvious or intuitive to many that does not mean that they are uniformly applied even well informed and well intentioned teams can unconsciously stray from these principles over time and so this list may well be a valuable reference that teams coaches and team leaders can use to evaluate and favorably adjust the operations of their groups from time to time I ve excerpted some of Wilson s work in this short piece but in doing so I certainly haven t cherry picked all the good stuff I can enthusiastically recommend his book This View of Life Completing the Darwinian Revolution https amzn to 2xkpCPl to everyone reading this not just for its insights into the workings of teams but perhaps even more importantly for insights into what it means to be human in the 21st century"
+    }, 
+    { 
+        title: "Self-Determination Theory", 
+        date: "", 
+        url: "self-determination-theory.html", 
+        summary: "<p>Self-determination theory suggests that all humans have three basic psychological needs &#8211; autonomy, competence, and relatedness &#8211; that underlie growth and development. </p><ul><li>Autonomy refers to feeling one has choice and is willingly endorsing one’s&#8230; </li></ul>", 
+        content: "Self determination theory suggests that all humans have three basic psychological needs autonomy competence and relatedness that underlie growth and development + Autonomy refers to feeling one has choice and is willingly endorsing one s behavior The opposite experience is feeling compelled or controlled in one s behavior + Competence refers to the experience of mastery and being effective in one s activity + Relatedness refers to the need to feel connected and a sense of belongingness with others"
+    }, 
+    { 
+        title: "Darwinian Evolution", 
+        date: "", 
+        url: "darwinian-evolution.html", 
+        summary: "<p>One of the greatest advances in evolutionary science is to define Darwinian evolution as any process that combines the three ingredients of variation, selection and replication &#8211; no matter what the mechanisms. </p>", 
+        content: "One of the greatest advances in evolutionary science is to define Darwinian evolution as any process that combines the three ingredients of variation selection and replication no matter what the mechanisms This generalized definition enables the study of evolution to go beyond genetic evolution to include such things as epigenetics cultural traditions in nonhuman species cultural evolution in humans and evolutionary algorithms on computers"
+    }, 
+    { 
+        title: "Maslow's Hierarchy of Needs", 
+        date: "", 
+        url: "maslows-hierarchy-of-needs.html", 
+        summary: "<p>Maslow identified the following categories of needs, and indicated that lower-level needs (appearing first below) would typically take precedence, and that higher-level needs (appearing later) could only command energy and attention when lower-level&#8230; </p>", 
+        content: "Maslow identified the following categories of needs and indicated that lower level needs appearing first below would typically take precedence and that higher level needs appearing later could only command energy and attention when lower level needs were satisfied + Physiological needs + Safety needs + Love and Social Belonging needs + Esteem needs + Cognitive needs such as creativity curiousity and meaning + Aesthetic needs + Self actualization + Transcendence needs"
+    }, 
+    { 
+        title: "Quotations", 
+        date: "", 
+        url: "quotations.html", 
+        summary: "<p>This section contains quotations from others, many of which are referenced elsewhere within this work. </p>", 
+        content: "This section contains quotations from others many of which are referenced elsewhere within this work Note that the CC BY 4 0 license http creativecommons org licenses by 4 0 ref=chooser v1 under which the original content within this work is released does not apply to any of these quotations See the individual attribution for each quotation for information on how the words from these separate works are legally protected I make use of these quotations within this work based on the legal doctrine of Fair Use https www copyright gov fair use"
+    }, 
+    { 
+        title: "A beast or a god", 
+        date: "Date, date, valid: true, type: DateValue, value: 350 BC", 
+        url: "a-beast-or-a-god.html", 
+        summary: "<p>But he who is unable to live in society, or who has no need because he is sufficient for himself, must be either a beast or a god: he is no part of a state. </p>", 
+        content: "But he who is unable to live in society or who has no need because he is sufficient for himself must be either a beast or a god he is no part of a state A social instinct is implanted in all men by nature"
+    }, 
+    { 
+        title: "A vast repository of information", 
+        date: "Date, date, valid: true, type: DateValue, value: 2019", 
+        url: "a-vast-repository-of-information.html", 
+        summary: "<p>With this perspective, you can begin to think of yourself as not just a product of your genes, and not just a product of your personal experience, but also as one of many members of your culture who collectively contain a vast repository of&#8230; </p>", 
+        content: "With this perspective you can begin to think of yourself as not just a product of your genes and not just a product of your personal experience but also as one of many members of your culture who collectively contain a vast repository of information learned and passed down from previous generations This makes you part of something larger than yourself The information has not just been passed down but it has also been winnowed through the generations leaving us with a set of beliefs and practices that helped us to cohere as groups"
+    }, 
+    { 
+        title: "An ultracultural species is born", 
+        date: "Date, date, valid: true, type: DateValue, value: 2019", 
+        url: "an-ultracultural-species-is-born.html", 
+        summary: "<p>As we are increasingly coming to realize, our species does represent a new evolutionary process — cultural evolution — that far surpasses cultural traditions in other species. </p>", 
+        content: "As we are increasingly coming to realize our species does represent a new evolutionary process cultural evolution that far surpasses cultural traditions in other species This capacity for cultural evolution enabled our ancestors to spread over the globe inhabiting all climatic zones and dozens of ecological niches Then small scale societies tiny grains of thought coalesced into larger and larger societies over the past ten thousand years"
+    }, 
+    { 
+        title: "Cooperative communication", 
+        date: "Date, date, valid: true, type: DateValue, value: 2020", 
+        url: "cooperative-communication.html", 
+        summary: "<p>What allowed us to thrive while other humans went extinct was a kind of cognitive superpower: a particular type of friendliness called cooperative communication. We are experts at working together with other people, even strangers. </p>", 
+        content: "What allowed us to thrive while other humans went extinct was a kind of cognitive superpower a particular type of friendliness called cooperative communication We are experts at working together with other people even strangers We can communicate with someone we ve never met about a shared goal and work together to accomplish it"
+    }, 
+    { 
+        title: "Everybody has some important pieces of the truth", 
+        date: "Date, date, valid: true, type: DateValue, value: 2000", 
+        url: "everybody-has-some-important-pieces-of-the-truth.html", 
+        summary: "<p>My work is an attempt to make room in the Kosmos for all of the dimensions, levels, domains, waves, memes, modes, individuals, cultures, and so on ad infinitum. I have one major rule: Everybody is right. </p>", 
+        content: "My work is an attempt to make room in the Kosmos for all of the dimensions levels domains waves memes modes individuals cultures and so on ad infinitum I have one major rule Everybody is right More specifically everybody including me has some important pieces of truth and all of those pieces need to be honored cherished and included in a more gracious spacious and compassionate embrace"
+    }, 
+    { 
+        title: "Levels of Moral Development", 
+        date: "Date, date, valid: true, type: DateValue, value: 2007", 
+        url: "levels-of-moral-development.html", 
+        summary: "<p>To grasp what is involved with levels or stages, let&#8217;s use a very simple model possessing only 3 of them. </p>", 
+        content: "To grasp what is involved with levels or stages let s use a very simple model possessing only 3 of them If we look at moral development for example we find that an infant at birth has not yet been socialized into the culture s ethics and conventions this is called the preconventional stage It is also called egocentric in that the infant s awareness is largely self absorbed But as the young child begins to learns its culture s rules and norms it grows into the conventional stage of morals This stage is also called ethnocentric in that it centers on the child s particular group tribe clan or nation and it therefore tends to exclude those not of its group But at the next major stage of moral development the postconventional stage the individual s identity expands once again this time to include a care and concern for all peoples regardless of race color sex or creed which is why this stage is also called worldcentric Thus moral development tends to move from me egocentric to us ethnocentric to all of us worldcentric a good example of the unfolding waves of consciousness"
+    }, 
+    { 
+        title: "Life can be much broader", 
+        date: "Date, date, valid: true, type: DateValue, value: 1994", 
+        url: "life-can-be-much-broader.html", 
+        summary: "<p>When you grow up you tend to get told that the world is the way it is and your life is just to live your life inside the world. Try not to bash into the walls too much. Try to have a nice family, have fun, save a little money. </p>", 
+        content: "When you grow up you tend to get told that the world is the way it is and your life is just to live your life inside the world Try not to bash into the walls too much Try to have a nice family have fun save a little money That s a very limited life Life can be much broader once you discover one simple fact Everything around you that you call life was made up by people that were no smarter than you and you can change it you can influence it you can build your own things that other people can use"
+    }, 
+    { 
+        title: "Relationships among groups", 
+        date: "Date, date, valid: true, type: DateValue, value: 2019", 
+        url: "relationships-among-groups.html", 
+        summary: "<p>In large societies that consist of many groups, relationships among groups must embody the same principles as the relationships among individuals within groups. </p>", 
+        content: "In large societies that consist of many groups relationships among groups must embody the same principles as the relationships among individuals within groups This means that the core design principles are scale independent"
+    }, 
+    { 
+        title: "Small groups are a fundamental unit of human social organization", 
+        date: "Date, date, valid: true, type: DateValue, value: 2019", 
+        url: "small-groups-are-a-fundamental-unit-of-human-social-organization.html", 
+        summary: "<p>Multilevel selection theory tells us that something similar to team-level selection took place in our species for thousands of generations, resulting in adaptations for teamwork that are baked into the genetic architecture of our minds. </p>", 
+        content: "Multilevel selection theory tells us that something similar to team level selection took place in our species for thousands of generations resulting in adaptations for teamwork that are baked into the genetic architecture of our minds Absorbing this fact leads to the conclusion that small groups are a fundamental unit of human social organization Individuals cannot be understood except in the context of small groups and large scale societies need to be seen as a kind of multicellular organism comprising small groups"
+    }, 
+    { 
+        title: "The Highest Kind of Religious Feeling", 
+        date: "Date, date, valid: true, type: DateValue, value: 1930", 
+        url: "the-highest-kind-of-religious-feeling.html", 
+        summary: "<p>The beginnings of cosmic religious feeling already appear at an early stage of development, e.g., in many of the Psalms of David and in some of the Prophets. </p>", 
+        content: "The beginnings of cosmic religious feeling already appear at an early stage of development e g in many of the Psalms of David and in some of the Prophets Buddhism as we have learned especially from the wonderful writings of Schopenhauer contains a much stronger element of this The religious geniuses of all ages have been distinguished by this kind of religious feeling which knows no dogma and no God conceived in man s image so that there can be no church whose central teachings are based on it Hence it is precisely among the heretics of every age that we find men who were filled with this highest kind of religious feeling and were in many cases regarded by their contemporaries as atheists sometimes also as saints"
+    }, 
+    { 
+        title: "The Mysterious", 
+        date: "Date, date, valid: true, type: DateValue, value: 1949", 
+        url: "the-mysterious.html", 
+        summary: "<p>The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at the cradle of true art and true science. </p>", 
+        content: "The most beautiful experience we can have is the mysterious It is the fundamental emotion that stands at the cradle of true art and true science Whoever does not know it and can no longer wonder no longer marvel is as good as dead and his eyes are dimmed It was the experience of mystery even if mixed with fear that engendered religion A knowledge of the existence of something we cannot penetrate our perceptions of the profoundest reason and the most radiant beauty which only in their most primitive forms are accessible to our minds it is this knowledge and this emotion that constitute true religiosity In this sense and only this sense I am a deeply religious man"
+    }, 
+    { 
+        title: "When you can measure what you are speaking about", 
+        date: "Date, date, valid: true, type: DateValue, value: 03 May 1883", 
+        url: "when-you-can-measure-what-you-are-speaking-about.html", 
+        summary: "<p>I often say that when you can measure what you are speaking about, and express it in numbers, you know something about it; but when you cannot express it in numbers, your knowledge is of a meagre and unsatisfactory kind; </p>", 
+        content: "I often say that when you can measure what you are speaking about and express it in numbers you know something about it but when you cannot express it in numbers your knowledge is of a meagre and unsatisfactory kind it may be the beginning of knowledge but you have scarcely in your thoughts advanced to the stage of science whatever the matter may be"
+    }, 
+    { 
+        title: "Bibliography", 
+        date: "", 
+        url: "bibliography.html", 
+        summary: "<p>These are the authors, and their works, that I cite within this book, and whose words and ideas have helped to shape mine. </p>", 
+        content: "These are the authors and their works that I cite within this book and whose words and ideas have helped to shape mine"
+    }, 
+    { 
+        title: "Aristotle", 
+        date: "", 
+        url: "aristotle.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Politics by Aristotle", 
+        date: "Date, date, valid: true, type: DateValue, value: 350 BC", 
+        url: "politics-by-aristotle.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Austin, Rob", 
+        date: "", 
+        url: "austin-rob.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Measuring and Managing Performance in Organizations", 
+        date: "Date, date, valid: true, type: DateValue, value: 1996", 
+        url: "measuring-and-managing-performance-in-organizations.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Beck, Don Edward and Cowan, Christopher", 
+        date: "", 
+        url: "beck-don-edward-and-cowan-christopher.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Spiral Dynamics: Mastering Values, Leadership and Change", 
+        date: "Date, date, valid: true, type: DateValue, value: 1996", 
+        url: "spiral-dynamics-mastering-values-leadership-and-change.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Einstein, Albert", 
+        date: "", 
+        url: "einstein-albert.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Religion and Science", 
+        date: "Date, date, valid: true, type: DateValue, value: 1930", 
+        url: "religion-and-science.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "The World As I See It", 
+        date: "Date, date, valid: true, type: DateValue, value: 1949", 
+        url: "the-world-as-i-see-it.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Harari, Yuval Noah", 
+        date: "", 
+        url: "harari-yuval-noah.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Hare, Brian and Woods, Vanessa", 
+        date: "", 
+        url: "hare-brian-and-woods-vanessa.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Survival of the Friendliest: Understanding our Origins and Rediscovering our Common Humanity", 
+        date: "Date, date, valid: true, type: DateValue, value: 2020", 
+        url: "survival-of-the-friendliest-understanding-our-origins-and-rediscovering-our-common-humanity.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Jobs, Steve", 
+        date: "", 
+        url: "jobs-steve.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Steve Jobs on The Secret of Life", 
+        date: "Date, date, valid: true, type: DateValue, value: 1994", 
+        url: "steve-jobs-on-the-secret-of-life.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Liker, Jeffrey and Hoseus, Mike", 
+        date: "", 
+        url: "liker-jeffrey-and-hoseus-mike.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Toyota Culture: The Heart and Soul of the Toyota Way", 
+        date: "Date, date, valid: true, type: DateValue, value: 2008", 
+        url: "toyota-culture-the-heart-and-soul-of-the-toyota-way.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Maslow, Abraham", 
+        date: "", 
+        url: "maslow-abraham.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "A Theory of Human Motivation", 
+        date: "Date, date, valid: true, type: DateValue, value: 1943", 
+        url: "a-theory-of-human-motivation.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Obama, Barack", 
+        date: "", 
+        url: "obama-barack.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Ostrom, Elinor", 
+        date: "", 
+        url: "ostrom-elinor.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Thomson, William", 
+        date: "", 
+        url: "thomson-william.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Electrical Units of Measurement", 
+        date: "Date, date, valid: true, type: DateValue, value: 03 May 1883", 
+        url: "electrical-units-of-measurement.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Wilber, Ken", 
+        date: "", 
+        url: "wilber-ken.html", 
+        summary: "<p>I first came across Ken Wilber&#8217;s work late in the last century when a friend handed me a copy of&#8230; </p>", 
+        content: "I first came across Ken Wilber s work late in the last century when a friend handed me a copy of <cite>A Brief History of Everything< cite> as a birthday present Since then Wilber s influence has been cited by figures as diverse as Bill Clinton and Deepak Chopra which should give you some idea of how broadly his work can be applied A <cite>Salon< cite> interview salon with Wilber from back in 2008 is a good brief introduction to the man and some of his thoughts salon http www salon com 2008 04 28 ken wilber"
+    }, 
+    { 
+        title: "A Brief History of Everything", 
+        date: "Date, date, valid: true, type: DateValue, value: 1996", 
+        url: "a-brief-history-of-everything.html", 
+        summary: "<p>An audacious and entertaining intellectual investigation attempting (with some success) to explain how all the pieces of the cosmos fit together&#8230;. </p>", 
+        content: "An audacious and entertaining intellectual investigation attempting with some success to explain how all the pieces of the cosmos fit together"
+    }, 
+    { 
+        title: "Collected Works of Ken Wilber, Volume 8", 
+        date: "Date, date, valid: true, type: DateValue, value: 2000", 
+        url: "collected-works-of-ken-wilber-volume-8.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "The Integral Vision: A Very Short Introduction", 
+        date: "Date, date, valid: true, type: DateValue, value: 2007", 
+        url: "the-integral-vision-a-very-short-introduction.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Wilson, David Sloan", 
+        date: "", 
+        url: "wilson-david-sloan.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "This View of Life: Completing the Darwinian Revolution", 
+        date: "Date, date, valid: true, type: DateValue, value: 2020", 
+        url: "this-view-of-life-completing-the-darwinian-revolution.html", 
+        summary: "", 
+        content: ""
+    }, 
+    { 
+        title: "Navigation", 
+        date: "", 
+        url: "navigation.html", 
+        summary: "<p>This section offers a series of alternatives to find content of interest. </p>", 
+        content: "This section offers a series of alternatives to find content of interest"
+    }, 
+    { 
+        title: "Search", 
+        date: "", 
+        url: "search.html", 
+        summary: "<p>{:search: https://learnedabouthumans.org}&#8230; </p>", 
+        content: " search https learnedabouthumans org"
+    }, 
+]; 
+/**
+ * Based on Go Make Things blog post at:
+ * https://gomakethings.com/how-to-create-a-vanilla-js-search-page-for-a-static-website/
+ */
+(function (window, document, undefined) {
+
+    'use strict';
+
+    //
+    // Variables
+    //
+
+    let form = document.querySelector('#form-search');
+    let input = document.querySelector('#input-search');
+    let resultList = document.querySelector('#search-results');
+
+    //
+    // Methods
+    //
+
+    /**
+     * Create the HTML for each result
+     * @param  {Object} article The article
+     * @param  {Number} id      The result index
+     * @return {String}         The markup
+     */
+    let createHTML = function (article, id) {
+        let html =
+            '<div id="search-result-' + id + '">' +
+                '<h3>' +
+                    '<a href="' + article.url + '">' +
+                        article.title +
+                    '</a>' +
+                '</h2>' +
+                article.summary + '<br>' +
+            '</div>';
+        return html;
+    };
+
+    /**
+     * Create the markup for results
+     * @param  {Array} results The results to display
+     * @return {String}        The results HTML
+     */
+    let createResultsHTML = function (results) {
+        let html = '<p>Found ' + results.length + ' matching pages</p>';
+        html += results.map(function (article, index) {
+            return createHTML(article, index);
+        }).join('');
+        return html;
+    };
+
+    /**
+     * Create the markup when no results are found
+     * @return {String} The markup
+     */
+    let createNoResultsHTML = function () {
+        return '<p>Sorry, no matches were found.</p>';
+    };
+
+    /**
+     * Search for matches
+     * @param  {String} query The term to search for
+     */
+    let search = function (query) {
+
+        // Variables
+        let reg = new RegExp(query, 'gi');
+        let priority1 = []
+        let priority2 = []
+
+        searchIndex.forEach(function (article) {
+            if (reg.test(article.title)) return priority1.push(article);
+            if (reg.test(article.content)) priority2.push(article);
+        });
+
+        let results = [].concat(priority1, priority2)
+
+        // Display the results
+        resultList.innerHTML = results.length < 1 ? createNoResultsHTML() : createResultsHTML(results);
+    };
+
+    /**
+     * Handle submit events
+     */
+    let submitHandler = function (event) {
+        event.preventDefault();
+        search(input.value);
+    };
+
+    //
+    // Inits & Event Listeners
+    //
+
+    // Make sure required content exists
+    if (!form || !input || !resultList || !searchIndex) return;
+
+    // Create a submit handler
+    form.addEventListener('submit', submitHandler);
+
+})(window, document);
+
+</script>
+
+
+<hr />
+<p>Back to Top: <a href="what-ive-learned-about-humans.html">What I've Learned About Humans</a></p></body>
+</html>

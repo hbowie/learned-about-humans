@@ -1,0 +1,9 @@
+Title:  Level Field
+
+Seq:    6.3
+
+Level:  3
+
+Body:
+
+The level field will be adjusted in unison with the level of segmentation of the [[Seq Field]] so that the Level value of each Note will reflect its level of indention within the overall outline structure of the book. 

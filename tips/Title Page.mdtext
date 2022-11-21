@@ -1,0 +1,13 @@
+Title:  Title Page
+
+Seq:    7.1
+
+Level:  3
+
+Body:
+
+The first page of the book is given a blank [[Seq field]], and a [[Level field]] value of 1, and its [[Title field]] becomes the title of the book. . 
+
+This page will be duplicated within the website, and given the conventional home page file name of `index.html`.
+
+

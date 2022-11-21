@@ -16,4 +16,6 @@ I've generally used Notenik's Merge Templates and Scripts to generate these work
 
 Starting with the Notenik Knowledge Base, however, I began to integrate Notenik's book-making capabilities into more streamlined export functions. 
 
-*What I've Learned About Humans* is my latest web book project, and my goal at this point is to completely generate the finished web book using the Notenik option to generate a Web Book from a Collection of Notes. 
+*What I've Learned About Humans* is my latest web book project, and my goal at this point is to completely generate the finished web book using the Notenik option to generate a Web Book from a Collection of Notes.
+
+More specifically, I'll be using the File Export Output Format of `Web Book As Site`.

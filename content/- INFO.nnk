@@ -8,7 +8,7 @@ Sort Descending: false
 
 Other Fields Allowed: false
 
-Last Index Selected: 7
+Last Index Selected: 9
 
 Mirror Auto Index: false
 
@@ -26,9 +26,13 @@ Missing Targets: false
 
 Curly Apostrophes: true
 
-Web Book Folder: /Users/hbowie/Sites/About Humans
+Web Book Folder: /Users/hbowie/Sites/learned-about-humans/web
 
 Web Book EPUB: false
 
 Window Numbers: 1362.0;0.0;1198.0;1415.0;368.0;
+
+Note File Format: nnk
+
+Hash Tags: false
 

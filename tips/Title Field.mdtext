@@ -1,0 +1,20 @@
+Title:  Title Field
+
+Seq:    6.1
+
+Level:  3
+
+Body:
+
+I am only using one Collection to contain all of the site's content, so every content Note must have a unique title. 
+
+Each Note will be translated into a corresponding HTML page upon export of the Collection in the Web Book format. 
+
+The page file names will consist of the Note titles, converted to lowercase, and with spacing and most punctuation converted to hyphens. 
+
+The resulting web pages will have file extensions of '`.html`'.
+
+The Web Book export will also generate a page with the filename `index.html`, and this will contain a duplication of the contents of the first page in the book, as established by the [[Seq field]]. 
+
+
+

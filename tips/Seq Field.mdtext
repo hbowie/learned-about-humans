@@ -1,0 +1,15 @@
+Title:  Seq Field
+
+Seq:    6.2
+
+Level:  3
+
+Body:
+
+The Seq field establishes the reading order for the pages of the book. 
+
+Every Note will be given a unique Seq value in order to establish an unambiguous reading order. 
+
+The Seq value will be segmented, with each position being incremented according to the Note's [[Level value]].
+
+By convention the first page of the book becomes the title page, and is given a blank Seq value. 
